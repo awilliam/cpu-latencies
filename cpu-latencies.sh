@@ -1,8 +1,8 @@
 #!/bin/bash
 
-NETPERF="/usr/local/bin/netperf"
+NETPERF="$(which netperf)"
 NETPERF_ARGS="-H localhost -t TCP_RR -l 1"
-NETSERV="/usr/local/bin/netserver"
+NETSERV="$(which netserver)"
 CPUS=$(grep ^processor /proc/cpuinfo  | wc -l)
 WIDTH=$(grep ^processor /proc/cpuinfo | tail --lines=1  | awk '{print $NF}' | tr -d [:cntrl:] | wc -c)
 if [ $WIDTH -lt 2 ]; then
